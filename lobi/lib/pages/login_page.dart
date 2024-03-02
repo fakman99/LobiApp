@@ -3,6 +3,8 @@ import 'package:lobi/HomePage.dart';
 import 'package:lobi/components/my_button.dart';
 import 'package:lobi/components/my_textfield.dart';
 import 'package:lobi/components/square_tile.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -11,8 +13,13 @@ class LoginPage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  signIn() {
-    print('signing in');
+  Future<int> signIn() async {
+    final reponse = await http
+        .post(Uri.parse('http://89.116.229.190:3000/api/auth/signin'), body: {
+      "username": usernameController.text,
+      "password": passwordController.text,
+    });
+    return reponse.statusCode;
   }
 
   @override
@@ -82,12 +89,30 @@ class LoginPage extends StatelessWidget {
 
                 // sign in button
                 MyButton(
-                  onTap: () {
-                    signIn();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MyWidget()));
+                  onTap: () async {
+                    signIn().then((int value) {
+                      print("Value  " + value.toString());
+                      switch (value) {
+                        case 200:
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyWidget()),
+                          );
+                          break;
+                        case 404:
+                          print("WRONG USER");
+
+                          break;
+                        case 401:
+                          print("WRONG PASSWORD");
+
+                          break;
+                        case 200:
+                          break;
+                        default:
+                      }
+                    });
                   },
                 ),
 
