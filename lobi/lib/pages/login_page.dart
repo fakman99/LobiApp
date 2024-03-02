@@ -12,11 +12,17 @@ import 'package:lobby/pages/MainPage.dart';
 import 'package:provider/provider.dart';
 
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // text editing controllers
   final usernameController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   Future<List> signIn() async {
