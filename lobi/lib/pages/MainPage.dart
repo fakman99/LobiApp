@@ -1,6 +1,6 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:lobby/pages/profile.dart';
+import 'package:lobby/views/profile.dart';
 import 'package:lobby/views/add.dart';
 import 'package:lobby/views/favorite.dart';
 
