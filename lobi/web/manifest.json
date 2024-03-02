@@ -1,6 +1,6 @@
 {
-    "name": "lobi",
-    "short_name": "lobi",
+    "name": "lobby",
+    "short_name": "lobby",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

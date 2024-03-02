@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lobi/HomePage.dart';
-import 'package:lobi/components/my_button.dart';
-import 'package:lobi/components/my_textfield.dart';
-import 'package:lobi/components/square_tile.dart';
 import 'package:http/http.dart' as http;
+import 'package:lobby/components/my_button.dart';
 import 'dart:convert';
+
+import 'package:lobby/components/my_textfield.dart';
+import 'package:lobby/components/square_tile.dart';
+import 'package:lobby/pages/MainPage.dart';
+
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -97,7 +99,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MyWidget()),
+                                builder: (context) =>  Home()),
                           );
                           break;
                         case 404:

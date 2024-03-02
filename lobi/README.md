@@ -1,4 +1,4 @@
-# lobi
+# lobby
 
 A new Flutter project.
 
