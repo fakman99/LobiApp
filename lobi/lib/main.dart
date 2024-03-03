@@ -38,25 +38,7 @@ Future<Map<String, String>> getAllStorageInfo() async {
 //ADD THE LOGIC FOR ONBOARDING SCREEN / LOGIN PAGE / OR CONNECTED
 StatefulWidget checkConnectionStatus() {
   StatefulWidget firstScreenToShow = LoginPage();
-  String? accessToken = '';
-  bool? needOnboarding;
-
-  getNeedOfOnboarding().then((bool? value) {
-    needOnboarding = value;
-  });
-  //First time opening app
-  if (needOnboarding == true) {
-    firstScreenToShow = Onboarding();
-  } else {
-    //get access token  to check if connected
-    getAccessToken().then((String? value) {
-      accessToken = value;
-    });
-    //Cas ou access token deja existant en local
-    if (accessToken != null) {
-      firstScreenToShow = Home();
-    }
-  }
+  
   getAllStorageInfo().then((Map<String, String> value){
     for (var element in value.values) {
       print(element);
