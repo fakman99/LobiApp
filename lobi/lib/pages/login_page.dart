@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:lobby/Model/AppModel.dart';
 import 'package:lobby/components/my_button.dart';
@@ -33,6 +34,11 @@ class _LoginPageState extends State<LoginPage> {
     });
     return [reponse.statusCode,reponse.body];
   }
+
+  void saveAccessToken(String accessToken) async {
+  final storage = FlutterSecureStorage();
+  await storage.write(key: 'accessToken', value: accessToken);
+}
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                         final body = json.decode(value[1]);
                         switch (value[0]) {
                           case 200:
+                            saveAccessToken(body["accessToken"]);
                             Provider.of<AppModel>(context,listen: false).setKey(body["accessToken"]);
                             Navigator.push(
                               context,
