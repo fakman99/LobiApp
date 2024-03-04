@@ -17,16 +17,25 @@ void main() {
   ));
 }
 
-Future<bool?> getNeedOfOnboarding() async {
+deleteAllShared() async {
   final storage = FlutterSecureStorage();
-  bool? needOnboarding = await storage.containsKey(key: 'needOnboarding');
+  await storage.deleteAll();
+}
+
+Future<bool> getNeedOfOnboarding() async {
+  final storage = FlutterSecureStorage();
+  bool needOnboarding = await storage.containsKey(key: 'needOnboarding');
   return needOnboarding;
 }
 
-Future<String?> getAccessToken() async {
+Future<List<Object?>> checkConnectionStatus() async {
   final storage = FlutterSecureStorage();
   String? accessToken = await storage.read(key: 'accessToken');
-  return accessToken;
+  bool needOnboarding = await storage.containsKey(key: 'needOnboarding');
+  List res = [];
+  res.add(accessToken);
+  res.add(needOnboarding);
+  return res ;
 }
 
 Future<Map<String, String>> getAllStorageInfo() async {
@@ -36,15 +45,29 @@ Future<Map<String, String>> getAllStorageInfo() async {
 }
 
 //ADD THE LOGIC FOR ONBOARDING SCREEN / LOGIN PAGE / OR CONNECTED
-StatefulWidget checkConnectionStatus() {
-  StatefulWidget firstScreenToShow = LoginPage();
-  
+StatefulWidget viewSwitcher(List<Object?>? connectionStatus) {
+  //deleteAllShared(); debuging purpose
   getAllStorageInfo().then((Map<String, String> value){
     for (var element in value.values) {
       print(element);
     }
   });
-  return firstScreenToShow;
+    StatefulWidget firstScreenToShow = LoginPage();
+
+  switch (connectionStatus!.elementAt(1)) {
+    case true:
+      break;
+    default:
+      return firstScreenToShow = Onboarding();
+  }
+  switch (connectionStatus!.elementAt(0)) {
+    case null:
+      return firstScreenToShow = LoginPage();
+    default:
+      return firstScreenToShow = Home();
+  }
+  
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -54,9 +77,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Builder(
-        builder: (context) {
-          return checkConnectionStatus();
+      home: FutureBuilder(
+        future: checkConnectionStatus(),
+        builder: (context,snapshot) {
+          return viewSwitcher(snapshot.data);
         },
       ),
     );
