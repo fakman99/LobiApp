@@ -36,9 +36,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         if (_selectedTab.index == 1) {
           return Favorite();
         }
-        if (_selectedTab.index == 2) {
-          return Add();
-        }
+        
         if (_selectedTab.index == 0) {
           return MapMain();
         }
@@ -66,10 +64,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ),
 
             /// Search
-            DotNavigationBarItem(
-              icon: Icon(Icons.data_saver_on),
-              selectedColor: Colors.orange,
-            ),
+            
 
             /// Profile
             DotNavigationBarItem(
@@ -83,4 +78,4 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 }
 
-enum _SelectedTab { home, favorite, search, person }
+enum _SelectedTab { home, favorite, person }
