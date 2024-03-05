@@ -59,7 +59,7 @@ class _MapMainState extends State<MapMain> {
                   FlutterMap(
                     
                     options: MapOptions(
-                      backgroundColor: const Color.fromRGBO(158, 158, 158, 1),
+                      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
                       initialCenter: LatLng(50.85045, 4.34878),
                       initialZoom: 16,
                     ),

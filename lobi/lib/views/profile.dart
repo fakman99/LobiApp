@@ -29,6 +29,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Consumer<AppModel>(builder: (context,value,child){
       return Scaffold(
+        backgroundColor: Colors.grey[200],
         appBar: AppBar(
           title: const Text('Fetch Data Example'),
         ),

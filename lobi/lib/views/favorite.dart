@@ -27,7 +27,7 @@ class _FavoriteState extends State<Favorite> {
  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         centerTitle: true,
         title: Text('Enregistrés',
@@ -36,7 +36,7 @@ class _FavoriteState extends State<Favorite> {
               color: Color.fromARGB(255, 0, 0, 0),
             )),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[200],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
