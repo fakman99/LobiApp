@@ -87,7 +87,7 @@ class _MapMainState extends State<MapMain> {
                                     blurRadius: 15,
                                     spreadRadius: 1),
                                 BoxShadow(
-                                    color: Colors.white,
+                                    color: Colors.grey.shade500,
                                     offset: Offset(-4, -4),
                                     blurRadius: 15,
                                     spreadRadius: 1)
