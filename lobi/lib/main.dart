@@ -46,7 +46,7 @@ Future<Map<String, String>> getAllStorageInfo() async {
 
 //ADD THE LOGIC FOR ONBOARDING SCREEN / LOGIN PAGE / OR CONNECTED
 StatefulWidget viewSwitcher(List<Object?>? connectionStatus) {
-  //deleteAllShared(); debuging purpose
+  deleteAllShared();
   getAllStorageInfo().then((Map<String, String> value){
     for (var element in value.values) {
       print(element);
@@ -76,6 +76,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Color(0xffecf0f3),
       
       debugShowCheckedModeBanner: false,
       home: FutureBuilder(

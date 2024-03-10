@@ -55,11 +55,11 @@ class _MapMainState extends State<MapMain> {
             future: getPosition(),
             builder: (context, snapshot) {
               return Scaffold(
+                backgroundColor: Color(0xffecf0f3),
                 body: Stack(children: [
                   FlutterMap(
-                    
                     options: MapOptions(
-                      backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
+                      backgroundColor: Color(0xffecf0f3),
                       initialCenter: LatLng(50.85045, 4.34878),
                       initialZoom: 16,
                     ),
@@ -74,11 +74,11 @@ class _MapMainState extends State<MapMain> {
                   Column(
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 12.0, right: 12, left: 12),
+                        padding: const EdgeInsets.only(
+                            top: 12.0, right: 12, left: 12),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: const Color.fromRGBO(238, 238, 238, 1),
+                              color: Color(0xffecf0f3),
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
@@ -96,16 +96,17 @@ class _MapMainState extends State<MapMain> {
                           child: Center(
                             child: TextField(
                               decoration: InputDecoration(
-                                fillColor: const Color.fromRGBO(238, 238, 238, 1),
+                                fillColor: Color(0xffecf0f3),
                                 filled: true,
                                 hintText: 'Rechercher..',
-                              
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                   borderRadius: BorderRadius.circular(25.7),
                                 ),
                                 enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.transparent),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                   borderRadius: BorderRadius.circular(25.7),
                                 ),
                               ),
@@ -153,19 +154,17 @@ class _MapMainState extends State<MapMain> {
                 children: <Widget>[
                   Container(
                     decoration: const BoxDecoration(
-                      
-                      boxShadow: [
-                               
-                                BoxShadow(
-                                    color: const Color.fromRGBO(158, 158, 158, 1),
-                                    offset: Offset(-4, -4),
-                                    blurRadius: 15,
-                                    spreadRadius: 0.5)
-                              ],
+                        boxShadow: [
+                          BoxShadow(
+                              color: const Color.fromRGBO(158, 158, 158, 1),
+                              offset: Offset(-4, -4),
+                              blurRadius: 15,
+                              spreadRadius: 0.5)
+                        ],
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(25),
                             topRight: Radius.circular(25)),
-                        color: const Color.fromRGBO(238, 238, 238, 1)),
+                        color: Color(0xffecf0f3)),
                     alignment: Alignment.center,
                     height: 100.0,
                     child: Column(
@@ -177,8 +176,99 @@ class _MapMainState extends State<MapMain> {
                               thickness: 4,
                               color: Color.fromARGB(255, 187, 187, 187),
                             )),
+                            Text(""),
                         Row(
-                          children: <Widget>[],
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                                                onTap: (){},
+
+                                child: Container(
+                                   width: 90,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(236, 240, 243, 1),
+                                    borderRadius: BorderRadius.circular(17),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Color(0xffecf0f3),
+                                        Color(0xffecf0f3),
+                                      ],
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.white,
+                                        offset: Offset(-4, -4),
+                                        blurRadius: 15,
+                                        spreadRadius: 1,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0xffd1d5d8),
+                                        offset: Offset(4, 4),
+                                        blurRadius: 15,
+                                        spreadRadius: 1,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Center(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.add,color: Colors.orange,size: 18,),
+                                        Text("Lobi",style: TextStyle(fontWeight: FontWeight.bold),),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                onTap: (){print('test');},
+                                child: Container(
+                                  width: 90,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(236, 240, 243, 1),
+                                    borderRadius: BorderRadius.circular(17),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Color(0xffecf0f3),
+                                        Color(0xffecf0f3),
+                                      ],
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.white,
+                                        offset: Offset(-4, -4),
+                                        blurRadius: 15,
+                                        spreadRadius: 1,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0xffd1d5d8),
+                                        offset: Offset(4, 4),
+                                        blurRadius: 15,
+                                        spreadRadius: 1,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.add,color: Colors.orange,size: 18,),
+                                        Text("Place",style: TextStyle(fontWeight: FontWeight.bold),),
+                                      ],
+                                    ),
+                                ),
+                              ),
+                            )
+                          ],
                           mainAxisAlignment: MainAxisAlignment.center,
                         ),
                       ],
@@ -190,28 +280,123 @@ class _MapMainState extends State<MapMain> {
                   ),
                   Flexible(
                     child: Container(
-                      child: ListView.separated(
+                      child: ListView.builder(
                         controller: scrollController,
                         physics: ClampingScrollPhysics(),
                         itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text('list item $index'),
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 80,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: Icon(Icons.sports_soccer),
+                                      ),
+                                      Container(
+                                        width: 180,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Partie de Squatch 4 pers.",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w700,
+                                                    fontSize: 12,
+                                                    color: Colors.black)),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "Public   ",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 10,
+                                                      color: Colors.green),
+                                                ),
+                                                Text(
+                                                  "*  5/10",
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.blueGrey),
+                                                ),
+                                                Icon(
+                                                  Icons.person_2_outlined,
+                                                  size: 12,
+                                                )
+                                              ],
+                                            ),
+                                            Text(
+                                              "Sq. De Fré 1, 1180 Ucclezqdqzdqdz",
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  color: Colors.blueGrey),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                              Icons.favorite_border_outlined)),
+                                      IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(Icons.login))
+                                    ],
+                                  )
+                                ],
+                              ),
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(236, 240, 243, 1),
+                                borderRadius: BorderRadius.circular(17),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xffecf0f3),
+                                    Color(0xffecf0f3),
+                                  ],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0xffd1d5d8),
+                                    offset: Offset(-4, -4),
+                                    blurRadius: 15,
+                                    spreadRadius: 1,
+                                  ),
+                                  BoxShadow(
+                                    color: Color(0xffd1d5d8),
+                                    offset: Offset(4, 4),
+                                    blurRadius: 15,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
+                            ),
                           );
                         },
-                        separatorBuilder: (context, index) {
-                          return Divider(
-                            height: 0.5,
-                          );
-                        },
-                        shrinkWrap: true,
                         itemCount: 20,
                       ),
-                      color: Colors.grey.shade500,
+                      color: Color(0xffecf0f3),
                     ),
                   ),
                 ],
                 mainAxisSize: MainAxisSize.min,
               ),
+              color: Color(0xffecf0f3),
             ),
           ),
         ],

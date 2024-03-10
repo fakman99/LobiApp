@@ -27,6 +27,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 500),
     );
     return Scaffold(
+      backgroundColor: Color(0xffecf0f3),
       extendBody: true,
       body: Expanded(child: () {
         if (_selectedTab.index == 1) {
@@ -43,7 +44,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(bottom: 0),
         child: DotNavigationBar(
-          backgroundColor: Color.fromARGB(173, 255, 255, 255).withOpacity(0.7),
+          backgroundColor: Color(0xffecf0f3),
           marginR: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
           paddingR: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
